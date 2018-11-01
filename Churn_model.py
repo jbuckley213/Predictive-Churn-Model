@@ -8,7 +8,7 @@ from keras.layers import Dense
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score
 
 
 # Importing the dataset
@@ -53,12 +53,16 @@ classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'si
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
 # Fitting the ANN to the Training set
-classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
+train_history = classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
 
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
+
+print("Accuracy of predicting test set: ", accuracy_score(y_test, y_pred))
+print("Losses are: ", train_history.history['val_loss'][99])
+
 
 """ Predicting single customer
 Geography: France
@@ -77,3 +81,4 @@ new_prediction = (new_prediction > 0.5)
 
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
+print(cm)
