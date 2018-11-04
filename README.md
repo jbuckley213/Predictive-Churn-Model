@@ -17,7 +17,7 @@ The neural network has 11 inputs nodes. The nodes are multiplied by weights and 
 Results
 ========
 The neural network trained for 100 epochs for 8000 steps per epoch. The accuracy of the training data is 0.8337 with a loss of 0.402. The validation accuracy is 0.842 and the validation loss is 0.398. The accuracy score is satisfactory but the loss is a concern.
-From the confusion matrix it can be seen that there a 277 false positives which is 14% of the predictions. The problem may stem from insufficient data as nearly 80% of the data has an output 0. A larger and more diverse data set would help the models preformance.
+From the confusion matrix it can be seen that there a 277 false negitives and only 128 true negitives. The problem may stem from insufficient data as nearly 80% of the data has an output 0. A larger and more diverse data set would help the models preformance.
 
 Acknowledgments
 ========
